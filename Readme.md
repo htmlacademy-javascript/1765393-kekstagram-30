@@ -1,7 +1,7 @@
 # Личный проект «Кекстаграм»
 
 * Студент: [Нина Кун](https://up.htmlacademy.ru/javascript/30/user/1765393).
-* Наставник: `Неизвестно`.
+* Наставник: [Анастасия Гущина](https://htmlacademy.ru/profile/vanastasiya).
 
 ---
 
