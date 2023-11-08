@@ -86,20 +86,16 @@ function isPalindrome(str) {
   return normalStr === reversedStr;
 }
 
-/*
 // Проверка длины строки
-console.log(isStringLengthValid('проверяемая строка', 20)); // true
-console.log(isStringLengthValid('проверяемая строка', 18)); // true
-console.log(isStringLengthValid('проверяемая строка', 10)); // false
+(isStringLengthValid('проверяемая строка', 20)); // true
+(isStringLengthValid('проверяемая строка', 18)); // true
+(isStringLengthValid('проверяемая строка', 10)); // false
 
 // Проверка на палиндром
-console.log(isPalindrome('топот')); // true
-console.log(isPalindrome('ДовОд')); // true
-console.log(isPalindrome('Кекс')); // false
-console.log(isPalindrome('Лёша на полке клопа нашёл ')); // true
-*/
-
-
+(isPalindrome('топот')); // true
+(isPalindrome('ДовОд')); // true
+(isPalindrome('Кекс')); // false
+(isPalindrome('Лёша на полке клопа нашёл ')); // true
 
 /* Задача 2
 Функция принимает строку, извлекает содержащиеся в ней цифры от 0 до 9 и возвращает их в виде целого положительного числа. Если в строке нет ни одной цифры, функция должна вернуть NaN:
@@ -143,13 +139,11 @@ function extractDigits(str) {
   return parseInt(result, 10); // Преобразуем результат в целое число
 }
 
-/*
-console.log(extractDigits('2023 год')); // 2023
-console.log(extractDigits('ECMAScript 2022')); // 2022
-console.log(extractDigits('1 кефир, 0.5 батона')); // 105
-console.log(extractDigits('агент 007')); // 7
-console.log(extractDigits('а я томат')); // NaN
-console.log(extractDigits(2023)); // 2023
-console.log(extractDigits(-1)); // 1
-console.log(extractDigits(1.5)); // 15
-*/
+(extractDigits('2023 год')); // 2023
+(extractDigits('ECMAScript 2022')); // 2022
+(extractDigits('1 кефир, 0.5 батона')); // 105
+(extractDigits('агент 007')); // 7
+(extractDigits('а я томат')); // NaN
+(extractDigits(2023)); // 2023
+(extractDigits(-1)); // 1
+(extractDigits(1.5)); // 15
