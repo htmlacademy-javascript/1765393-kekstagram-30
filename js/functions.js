@@ -64,26 +64,8 @@
 
 //В первой функции isStringLengthValid мы просто сравниваем длину строки с максимальной длиной.
 // Функция для проверки длины строки
-function isStringLengthValid(str, maxLength) {
-  return str.length <= maxLength;
-}
-
-//Во второй функции isPalindrome мы нормализуем строку, убираем пробелы и приводим к нижнему регистру.
-//Затем создаем перевернутую строку и сравниваем её с исходной строкой после нормализации.
-//Если они равны, то строка является палиндромом.
-// Функция для проверки, является ли строка палиндромом
-function isPalindrome(str) {
-  // Нормализуем строку: убираем пробелы и приводим к нижнему регистру
-  const normalStr = str.replace(/\s/g, '').toLowerCase();
-
-  // Создаем перевернутую строку
-  let reversedStr = '';
-  for (let i = normalStr.length - 1; i >= 0; i--) {
-    reversedStr += normalStr[i];
-  }
-
-  // Сравниваем исходную и перевернутую строки
-  return normalStr === reversedStr;
+function isStringLengthValid(string, maxLength) {
+  return string.length <= maxLength;
 }
 
 // Проверка длины строки
@@ -91,11 +73,47 @@ function isPalindrome(str) {
 (isStringLengthValid('проверяемая строка', 18)); // true
 (isStringLengthValid('проверяемая строка', 10)); // false
 
+//Вариант 1
+//Во второй функции isPalindrome мы нормализуем строку, убираем пробелы и приводим к нижнему регистру.
+//Затем создаем перевернутую строку и сравниваем её с исходной строкой после нормализации.
+//Если они равны, то строка является палиндромом.
+// Функция для проверки, является ли строка палиндромом
+function isPalindrome(string) {
+  // Нормализуем строку: убираем пробелы и приводим к нижнему регистру
+  const normalString = string.replace(/\s/g, '').toLowerCase();
+
+  // Создаем перевернутую строку
+  let reversedString = '';
+  for (let i = normalString.length - 1; i >= 0; i--) {
+    reversedString += normalString[i];
+  }
+
+  // Сравниваем исходную и перевернутую строки
+  return normalString === reversedString;
+}
+
 // Проверка на палиндром
 (isPalindrome('топот')); // true
 (isPalindrome('ДовОд')); // true
 (isPalindrome('Кекс')); // false
 (isPalindrome('Лёша на полке клопа нашёл ')); // true
+
+// Вариант 2
+function isPalindrom(rawString) {
+  const string = rawString.replaceAll(' ', '').toLowerCase();
+  for (let i = 0; i < string.length / 2; i++) {
+    if (string.at(i) !== string.at(- i - 1)) {
+      return false;
+    }
+  }
+  return true;
+}
+
+// Проверка на палиндром
+(isPalindrom('топот')); // true
+(isPalindrom('ДовОд')); // true
+(isPalindrom('Кекс')); // false
+(isPalindrom('Лёша на полке клопа нашёл ')); // true
 
 /* Задача 2
 Функция принимает строку, извлекает содержащиеся в ней цифры от 0 до 9 и возвращает их в виде целого положительного числа. Если в строке нет ни одной цифры, функция должна вернуть NaN:
@@ -122,13 +140,15 @@ function isPalindrome(str) {
 */
 
 //Решение:
-function extractDigits(str) {
+
+//Вариант 1
+function extractDigits(string) {
   let result = ''; // Переменная для хранения извлеченных цифр
 
-  for (let i = 0; i < str.length; i++) {
-    if (!isNaN(str[i]) && str[i] !== ' ') {
+  for (let i = 0; i < string.length; i++) {
+    if (!isNaN(string[i]) && string[i] !== ' ') {
       // Если текущий символ является цифрой (и не является пробелом), добавляем его к результату
-      result += str[i];
+      result += string[i];
     }
   }
 
@@ -147,3 +167,24 @@ function extractDigits(str) {
 (extractDigits(2023)); // 2023
 (extractDigits(-1)); // 1
 (extractDigits(1.5)); // 15
+
+//Вариант 2
+function extractNumber(arg) {
+  const string = arg.toString();
+  let result = '';
+  for (let i = 0; i < string.length; i++) {
+    if (!Number.isNaN(parseInt(string[i], 10))) {
+      result += string[i];
+    }
+  }
+  return parseInt(result, 10);
+}
+
+(extractNumber('2023 год')); // 2023
+(extractNumber('ECMAScript 2022')); // 2022
+(extractNumber('1 кефир, 0.5 батона')); // 105
+(extractNumber('агент 007')); // 7
+(extractNumber('а я томат')); // NaN
+(extractNumber(2023)); // 2023
+(extractNumber(-1)); // 1
+(extractNumber(1.5)); // 15
